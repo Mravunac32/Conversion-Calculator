@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CurrencyComponent } from './currency.component';
 import { SharedModule } from '../../shared/shared.module';
-import { CurrencyRoutingModule } from './currency-routing.module';
+import { UnitRoutingModule } from './unit-routing.module';
+import { UnitComponent } from './unit.component';
 
 @NgModule({
-  declarations: [CurrencyComponent],
-  imports: [CurrencyRoutingModule, CommonModule, SharedModule]
+  declarations: [UnitComponent],
+  imports: [UnitRoutingModule, CommonModule, SharedModule]
 })
-export class CurrencyModule {}
+export class UnitModule {}

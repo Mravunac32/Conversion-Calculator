@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ConversionCalculator';
+  title = 'Conversion Calculator';
+  isMenuOpen: boolean = false;
+
+  constructor() {}
+
+  public onSidenavClick(): void {
+    this.isMenuOpen = false;
+  }
 }

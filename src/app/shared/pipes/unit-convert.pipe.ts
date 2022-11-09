@@ -8,13 +8,13 @@ import { UnitConvertRequestModel } from '../data-service/models/unitConvertModel
 })
 export class UnitConvertPipe implements PipeTransform {
   private conversionRates: ConversionRates = {
-    [Units.inch]: { [Units.meter]: 0.025, [Units.inch]: 1, [Units.yard]: 0.028 },
-    [Units.meter]: { [Units.meter]: 1, [Units.inch]: 39.36, [Units.yard]: 1.094 },
-    [Units.yard]: { [Units.meter]: 0.914, [Units.inch]: 36, [Units.yard]: 1 }
+    [Units.INCH]: { [Units.METER]: 0.0254, [Units.INCH]: 1, [Units.YARD]: 0.0278 },
+    [Units.METER]: { [Units.METER]: 1, [Units.INCH]: 39.3701, [Units.YARD]: 1.0936 },
+    [Units.YARD]: { [Units.METER]: 0.9144, [Units.INCH]: 36, [Units.YARD]: 1 }
   };
 
   transform(value: UnitConvertRequestModel, ...args: unknown[]): string {
-    const convertedAmount = value.base_amount * this.conversionRates[value.base][value.target];
-    return `${value.base_amount}${value.base_amount} = ${convertedAmount}${value.target}`;
+    const convertedAmount = (value.base_amount * this.conversionRates[value.base][value.target]).toFixed(2);
+    return value.base_amount > 0 ? `${value.base_amount}${value.base} = ${convertedAmount}${value.target}` : '';
   }
 }

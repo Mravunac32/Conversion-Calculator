@@ -1,23 +1,26 @@
-<mat-card class="c-currency__container">
-  <mat-card-title class="c-currency__container__title">Unit Converter</mat-card-title>
+<mat-card class="c-calculator__container">
+  <mat-card-title class="c-calculator__container__title"
+  >
+    {{(isCurrencySelected() ? 'Currency ' : 'Unit ') + 'Converter'}}
+  </mat-card-title>
 
-  <form [formGroup]="formGroup" class="c-currency__container__formFieldContainer">
-    <div class="c-currency__container__formFieldContainer__currencyContainer">
+  <form [formGroup]="formGroup" class="c-calculator__container__formFieldContainer">
+    <div class="c-calculator__container__formFieldContainer__optionContainer">
       <mat-form-field
         appearance="outline"
-        class="c-currency__container__formFieldContainer__currencyContainer__baseCurrency"
+        class="c-calculator__container__formFieldContainer__optionContainer__baseOption"
       >
         <mat-label>{{!inverted ? 'From' : 'To'}}</mat-label>
         <mat-select formControlName="base">
-          <mat-option *ngFor="let option of options | keyvalue" [value]="option.value">
-            {{option.value}}
+          <mat-option *ngFor="let option of options" [value]="option">
+            {{option}}
           </mat-option>
         </mat-select>
       </mat-form-field>
 
       <button mat-button
               color="primary"
-              class="c-currency__container__formFieldContainer__currencyContainer__conversionArrowButton"
+              class="c-currency__container__formFieldContainer__optionContainer__conversionArrowButton"
               (click)="inverted = !inverted"
       >
         <mat-icon>
@@ -28,19 +31,19 @@
 
       <mat-form-field
         appearance="outline"
-        class="c-currency__container__formFieldContainer__currencyContainer__targetCurrency"
+        class="c-calculator__container__formFieldContainer__optionContainer__targetOption"
       >
         <mat-label>{{!inverted ? 'To' : 'From'}}</mat-label>
         <mat-select formControlName="target">
-          <mat-option *ngFor="let option of options | keyvalue" [value]="option.value">
-            {{option.value}}
+          <mat-option *ngFor="let option of options " [value]="option">
+            {{option}}
           </mat-option>
         </mat-select>
       </mat-form-field>
 
     </div>
 
-    <div class="c-currency__container__formFieldContainer__baseAmountContainer">
+    <div class="c-calculator__container__formFieldContainer__baseAmountContainer">
       <mat-form-field appearance="outline">
         <mat-label>Base Amount</mat-label>
         <input matInput formControlName="baseAmount" type="text">
@@ -50,8 +53,8 @@
 
   </form>
 
-  <div class="c-currency__container__displayContainer"
-       *ngIf="formGroup.valid && calculatedResult$"
+  <div class="c-calculator__container__displayContainer"
+       *ngIf="formGroup?.valid && calculatedResult$"
        [innerHTML]= "calculatedResult$ | async">
   </div>
 

@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Units } from '../../shared/data-service/models/util';
 
 @Component({
   selector: 'app-unit',
   templateUrl: './unit.component.html',
-  styleUrls: ['./unit.component.scss'],
-  host: {
-    role: 'main',
-    class: 'c-unit',
-  },
+  styleUrls: ['./unit.component.scss']
 })
-export class UnitComponent implements OnInit {
-  constructor() {}
+export class UnitComponent {
+  public get arrayOfUnits() {
+    return Object.values(Units).map((unit) => String(unit));
+  }
 
-  ngOnInit(): void {}
+  public get units() {
+    return Units;
+  }
 }

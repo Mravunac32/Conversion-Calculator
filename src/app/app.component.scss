@@ -1,0 +1,102 @@
+@use '../styles/grid' as grid;
+
+:host {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #030329;
+  color: white;
+  font-weight: 600;
+
+  .hamburger-container {
+    margin-right: 16px;
+    display: none;
+    position: relative;
+
+    @include grid.breakpoint(500px) {
+      display: unset;
+    }
+
+    .menu-button {
+      min-width: 0;
+      padding: 0;
+      line-height: normal;
+    }
+
+    .hamburger-details {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: -120px;
+      width: 150px;
+      background-color: #030329;
+      z-index: 2;
+      border-radius: 4px;
+
+      & > a {
+        margin-left: 0;
+        width: 100%;
+      }
+
+    }
+
+    .opened {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .button-container {
+    margin-right: 16px;
+    display: flex;
+    @include grid.breakpoint(500px) {
+      display: none;
+    }
+  }
+}
+
+.toolbar span {
+  margin: 0 16px;
+}
+
+.toolbar a:last-child {
+  margin-left: 16px;
+}
+
+.content {
+  display: flex;
+  margin: 82px auto 32px;
+  padding: 0 16px;
+  flex-direction: column;
+  align-items: center;
+
+  width: calc(100% - 32px);
+  min-width: calc(320px - 32px);
+  max-width: calc(960px - 32px);
+
+  @include grid.breakpoint(400px) {
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+
+
+
+  }
+}

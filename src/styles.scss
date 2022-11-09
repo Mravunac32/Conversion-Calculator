@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import './styles/material.scss';
+@import './styles/grid.scss';
+
+
+html, body { height: 100%;
+  background-size: auto;
+  background: url('./assets/images/page_background.jpg') no-repeat;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 8px 0;
+}
+
+p {
+  margin: 0;
+}

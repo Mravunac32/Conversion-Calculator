@@ -1,0 +1,64 @@
+@use '../../../../styles/grid' as grid;
+
+
+:host {
+  height: 100%;
+
+}
+
+.c-calculator {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: calc(320px - 32px);
+
+    @include grid.breakpoint(400px) {
+      max-width: calc(262px - 32px);
+    }
+
+    &__title {
+      margin-bottom: 24px;
+    }
+
+    &__formFieldContainer {
+      flex-basis: 100%;
+
+      &__optionContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        &__baseOption, &__targetOption {
+          max-width: 35%;
+
+          @include grid.breakpoint(400px) {
+            width: 33%;
+          }
+        }
+
+        &__conversionArrowButton {
+          height: 56px;
+        }
+      }
+
+      &__baseAmountContainer {
+        display: flex;
+        flex-direction: column;
+      }
+
+
+    }
+
+    &__displayContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+
+      border-radius: 4px;
+      padding: 16px;
+      border: 1px solid #1976d2;
+    }
+  }
+}
+
