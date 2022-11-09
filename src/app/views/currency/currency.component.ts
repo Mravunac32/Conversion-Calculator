@@ -1,0 +1,16 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-currency',
+  templateUrl: './currency.component.html',
+  styleUrls: ['./currency.component.scss'],
+  host: {
+    role: 'main',
+    class: 'c-currency',
+  },
+})
+export class CurrencyComponent implements OnInit {
+  constructor() {}
+
+  ngOnInit(): void {}
+}

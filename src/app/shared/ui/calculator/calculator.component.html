@@ -1,0 +1,58 @@
+<mat-card class="c-currency__container">
+  <mat-card-title class="c-currency__container__title">Unit Converter</mat-card-title>
+
+  <form [formGroup]="formGroup" class="c-currency__container__formFieldContainer">
+    <div class="c-currency__container__formFieldContainer__currencyContainer">
+      <mat-form-field
+        appearance="outline"
+        class="c-currency__container__formFieldContainer__currencyContainer__baseCurrency"
+      >
+        <mat-label>{{!inverted ? 'From' : 'To'}}</mat-label>
+        <mat-select formControlName="base">
+          <mat-option *ngFor="let option of options | keyvalue" [value]="option.value">
+            {{option.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-button
+              color="primary"
+              class="c-currency__container__formFieldContainer__currencyContainer__conversionArrowButton"
+              (click)="inverted = !inverted"
+      >
+        <mat-icon>
+          {{inverted ? 'keyboard_arrow_left' : 'keyboard_arrow_right'}}
+        </mat-icon>
+      </button>
+
+
+      <mat-form-field
+        appearance="outline"
+        class="c-currency__container__formFieldContainer__currencyContainer__targetCurrency"
+      >
+        <mat-label>{{!inverted ? 'To' : 'From'}}</mat-label>
+        <mat-select formControlName="target">
+          <mat-option *ngFor="let option of options | keyvalue" [value]="option.value">
+            {{option.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+    <div class="c-currency__container__formFieldContainer__baseAmountContainer">
+      <mat-form-field appearance="outline">
+        <mat-label>Base Amount</mat-label>
+        <input matInput formControlName="baseAmount" type="text">
+      </mat-form-field>
+    </div>
+
+
+  </form>
+
+  <div class="c-currency__container__displayContainer"
+       *ngIf="formGroup.valid && calculatedResult$"
+       [innerHTML]= "calculatedResult$ | async">
+  </div>
+
+</mat-card>
