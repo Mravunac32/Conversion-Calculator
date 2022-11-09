@@ -10,8 +10,4 @@ export class AppComponent {
   isMenuOpen: boolean = false;
 
   constructor() {}
-
-  public onSidenavClick(): void {
-    this.isMenuOpen = false;
-  }
 }

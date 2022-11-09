@@ -47,4 +47,8 @@ describe('AppComponent', () => {
   it(`should have as title 'ConversionCalculator'`, () => {
     expect(component.title).toEqual('Conversion Calculator');
   });
+
+  it(`should have isMenuOpen false`, () => {
+    expect(component.isMenuOpen).toEqual(false);
+  });
 });
